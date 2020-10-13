@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet"> 
+    <title>timetable</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" class="wrapper">
+
+        <aside class="aside">
+            <header class="aside__header">
+                <img src="img/student.png" alt="student" class="aside__icon">
+                <div class="aside__greeting">
+                    <p>{{ textGreeting }},</p>
+                    <p>Студент!</p>
+                </div>
+            </header>
+            <!--end header-->
+            <section class="aside__main">
+                <p class="aside__select-group" v-on:click="groupStatus = true">Группа {{ group }}</p>
+                <p class="aside__select-week" v-on:click="weekStatus = true">Неделя {{ week }}</p>
+                <p class="aside__select-day" v-on:click="dayStatus = true">День {{ day }}</p>
+            </section>
+            <!--end main-->
+            <footer class="aside__footer">
+                <p>Есть идеи по улучшению или нашли ошибки? Тогда писать <a target="_blank" href="https://vk.com/idvladislavnaverno">сюда</a></p>
+            </footer>
+            <!--end footer-->
+        </aside>
+        <!--end aside-->
+        <main class="main">
+            <div class="main__burger" v-bind:class="{ active: !burgerMenuStatus }" v-on:click="active">
+                <span></span>
+            </div>
+            <!--end button-->
+            <div class="timetable">
+
+                <div class="timetable__group imb-211">
+                    <h1 class="title-group">ИМб-211</h1>
+                    <div class="timetable__week-one">
+                        <h2 class="title__week">Первая неделя</h2>
+                        <div class="timetable__monday day">
+                            <h3 class="title__day">Понедельник</h3>
+                            <p class="timetable__item">Правила дорожного движения (Б-140)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-304) (лекция)</p>
+                            <p class="timetable__item">Тракторы и автомобили (Г-211)</p>
+                            <p class="timetable__item">Тракторы и автомобили (Г-211)</p>
+                        </div>
+                        <!--end timetable__monday-->
+                        <div class="timetable__tuesday day">
+                            <h3 class="title__day">Вторник</h3>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-119)</p>
+                            <p class="timetable__item">Компьютерное проектирование (Б-308)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-316)</p>
+                        </div>
+                        <!--end timetable__tuesday-->
+                        <div class="timetable__wednesday day">
+                            <h3 class="title__day">Среда</h3>
+                            <p class="timetable__item">Иностранный язык (В-310)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-320)</p>
+                            <p class="timetable__item">Математика (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__wednesday-->
+                        <div class="timetable__thursday day">
+                            <h3 class="title__day">Четверг</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Математика (Б-140)</p>
+                            <p class="timetable__item">Физкультура</p>
+                            <p class="timetable__item">Физкультура</p>
+                        </div>
+                        <!--end timetable__thursday-->
+                        <div class="timetable__friday day">
+                            <h3 class="title__day">Пятница</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Физика (Б-503) (лекция)</p>
+                        </div>
+                        <!--end timetable__friday-->
+                    </div>
+                    <!--end timetable__week-one-->
+                    <div class="timetable__week-two">
+                        <h2 class="title__week">Вторая неделя</h2>
+                        <div class="timetable__monday day">
+                            <h3 class="title__day">Понедельник</h3>
+                            <p class="timetable__item">Теория механизмов и машин (Б-320)</p>
+                            <p class="timetable__item">Сопротивление материалов (Б-125)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-304) (лекция)</p>
+                        </div>
+                        <!--end timetable__monday-->
+                        <div class="timetable__tuesday day">
+                            <h3 class="title__day">Вторник</h3>
+                            <p class="timetable__item">Физика (Б-512)</p>
+                            <p class="timetable__item">Компьютерное проектирование (Б-308)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__tuesday-->
+                        <div class="timetable__wednesday day">
+                            <h3 class="title__day">Среда</h3>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-119)</p>
+                            <p class="timetable__item">Иностранный язык (Б-317)</p>
+                        </div>
+                        <!--end timetable__wednesday-->
+                        <div class="timetable__thursday day">
+                            <h3 class="title__day">Четверг</h3>
+                            <p class="timetable__item">Правила дорожного движения (Б-140)</p>
+                            <p class="timetable__item">Математика (Б-526)</p>
+                            <p class="timetable__item">Физкультура</p>
+                            <p class="timetable__item">Физкультура</p>
+                        </div>
+                        <!--end timetable__thursday-->
+                        <div class="timetable__friday day">
+                            <h3 class="title__day">Пятница</h3>
+                            <p class="timetable__item">Математика</p>
+                            <p class="timetable__item">Сопротивление материалов (Б-316)</p>
+                        </div>
+                        <!--end timetable__friday-->
+                    </div>
+                    <!--end timetable__week-two-->
+                </div>
+                <!--end imb-211-->
+
+                <div class="timetable__group imb-212">
+                    <h1 class="title-group">ИМб-212</h1>
+                    <div class="timetable__week-one">
+                        <h2 class="title__week">Первая неделя</h2>
+                        <div class="timetable__monday day">
+                            <h3 class="title__day">Понедельник</h3>
+                            <p class="timetable__item">Правила дорожного движения (Б-140)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Б-304) (лекция)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Б-304)</p>
+                            <p class="timetable__item">Компьютерное проектирование (Б-308)</p>
+                        </div>
+                        <!--end timetable__monday-->
+                        <div class="timetable__tuesday day">
+                            <h3 class="title__day">Вторник</h3>
+                            <p class="timetable__item"><span>*</span>Тракторы и автомобили (Г-211)</p>
+                            <p class="timetable__item">Тракторы и автомобили (Г-211)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-316) (лекция)</p>
+                            <p class="timetable__item">Иностранный язык (В-401)</p>
+                        </div>
+                        <!--end timetable__tuesday-->
+                        <div class="timetable__wednesday day">
+                            <h3 class="title__day">Среда</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-320)</p>
+                            <p class="timetable__item">Математика (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__wednesday-->
+                        <div class="timetable__thursday day">
+                            <h3 class="title__day">Четверг</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Математика (Б-526)</p>
+                            <p class="timetable__item">Физкультура</p>
+                            <p class="timetable__item">Физкультура</p>
+                        </div>
+                        <!--end timetable__thursday-->
+                        <div class="timetable__friday day">
+                            <h3 class="title__day">Пятница</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Физика (Б-503) (лекция)</p>
+                        </div>
+                        <!--end timetable__friday-->
+                    </div>
+                    <!--end timetable__week-one-->
+                    <div class="timetable__week-two">
+                        <h2 class="title__week">Вторая неделя</h2>
+                        <div class="timetable__monday day">
+                            <h3 class="title__day">Понедельник</h3>
+                            <p class="timetable__item">Сопротивление материалов (Б-125)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-320)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-304) (лекция)</p>
+                        </div>
+                        <!--end timetable__monday-->
+                        <div class="timetable__tuesday day">
+                            <h3 class="title__day">Вторник</h3>
+                            <p class="timetable__item">Компьютерное проектирование (Б-308)</p>
+                            <p class="timetable__item">Физика (Б-512)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__tuesday-->
+                        <div class="timetable__wednesday day">
+                            <h3 class="title__day">Среда</h3>
+                            <p class="timetable__item">Иностранный язык (В-403)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-119)</p>
+                            <p class="timetable__item">Математика (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__wednesday-->
+                        <div class="timetable__thursday day">
+                            <h3 class="title__day">Четверг</h3>
+                            <p class="timetable__item">Правила дорожного движения (Б-140)</p>
+                            <p class="timetable__item">Математика (Б-526)</p>
+                            <p class="timetable__item">Физкультура</p>
+                            <p class="timetable__item">Физкультура</p>
+                        </div>
+                        <!--end timetable__thursday-->
+                        <div class="timetable__friday day">
+                            <h3 class="title__day">Пятница</h3>
+                            <p class="timetable__item">Математика (Б-521)</p>
+                            <p class="timetable__item">Сопротивление материалов (Б-316)</p>
+                        </div>
+                        <!--end timetable__friday-->
+                    </div>
+                    <!--end timetable__week-two-->
+                </div>
+                <!--end imb-212-->
+
+                <div class="timetable__group imb-221">
+                    <h1 class="title-group">ИМб-221</h1>
+                    <div class="timetable__week-one">
+                        <h2 class="title__week">Первая неделя</h2>
+                        <div class="timetable__monday day">
+                            <h3 class="title__day">Понедельник</h3>
+                            <p class="timetable__item">Математика (Б-521)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-304) (лекция)</p>
+                        </div>
+                        <!--end timetable__monday-->
+                        <div class="timetable__tuesday day">
+                            <h3 class="title__day">Вторник</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-320)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-316) (лекция)</p>
+                            <p class="timetable__item">Правила дорожного движения (Б-140)</p>
+                        </div>
+                        <!--end timetable__tuesday-->
+                        <div class="timetable__wednesday day">
+                            <h3 class="title__day">Среда</h3>
+                            <p class="timetable__item"><span>*</span>Тракторы и автомобили (Г-211)</p>
+                            <p class="timetable__item">Тракторы и автомобили (Г-211)</p>
+                            <p class="timetable__item">Математика (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__wednesday-->
+                        <div class="timetable__thursday day">
+                            <h3 class="title__day">Четверг</h3>
+                            <p class="timetable__item">Компьютерное проектирование (Б-308)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-119)</p>
+                            <p class="timetable__item">Физкультура</p>
+                            <p class="timetable__item">Физкультура</p>
+                        </div>
+                        <!--end timetable__thursday-->
+                        <div class="timetable__friday day">
+                            <h3 class="title__day">Пятница</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Физкика (Б-503) (лекция)</p>
+                            <p class="timetable__item">Иностранный язык (В-304)</p>
+                        </div>
+                        <!--end timetable__friday-->
+                    </div>
+                    <!--end timetable__week-one-->
+                    <div class="timetable__week-two">
+                        <h2 class="title__week">Вторая неделя</h2>
+                        <div class="timetable__monday day">
+                            <h3 class="title__day">Понедельник</h3>
+                            <p class="timetable__item">Математика (Б-521)</p>
+                            <p class="timetable__item">Правила дорожного движения (Б-140)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-304) (лекция)</p>
+                        </div>
+                        <!--end timetable__monday-->
+                        <div class="timetable__tuesday day">
+                            <h3 class="title__day">Вторник</h3>
+                            <p class="timetable__item">Теория механизмов и машин (Б-320)</p>
+                            <p class="timetable__item">Сопротивление материалов (Б-125)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__tuesday-->
+                        <div class="timetable__wednesday day">
+                            <h3 class="title__day">Среда</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Математика (Б-526)</p>
+                            <p class="timetable__item">Математика (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__wednesday-->
+                        <div class="timetable__thursday day">
+                            <h3 class="title__day">Четверг</h3>
+                            <p class="timetable__item">Компьютерное проектирование (Б-308)</p>
+                            <p class="timetable__item">Физика (Б-512)</p>
+                            <p class="timetable__item">Физкультура</p>
+                            <p class="timetable__item">Физкультура</p>
+                        </div>
+                        <!--end timetable__thursday-->
+                        <div class="timetable__friday day">
+                            <h3 class="title__day">Пятница</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Сопротивление материалов (Б-316) (лекция)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-119)</p>
+                            <p class="timetable__item">Иностранный язык (В-401)</p>
+                        </div>
+                        <!--end timetable__friday-->
+                    </div>
+                    <!--end timetable__week-two-->
+                </div>
+                <!--end imb-221-->
+
+                <div class="timetable__group imb-222">
+                    <h1 class="title-group">ИМб-222</h1>
+                    <div class="timetable__week-one">
+                        <h2 class="title__week">Первая неделя</h2>
+                        <div class="timetable__monday day">
+                            <h3 class="title__day">Понедельник</h3>
+                            <p class="timetable__item">Математика (Б-521)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-304) (лекция)</p>
+                        </div>
+                        <!--end timetable__monday-->
+                        <div class="timetable__tuesday day">
+                            <h3 class="title__day">Вторник</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Теория механизмов и материалов (Б-320)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-316) (лекция)</p>
+                            <p class="timetable__item">Правила дорожного движения (Б-140)</p>
+                        </div>
+                        <!--end timetable__tuesday-->
+                        <div class="timetable__wednesday day">
+                            <h3 class="title__day">Среда</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-119)</p>
+                            <p class="timetable__item">Математика (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__wednesday-->
+                        <div class="timetable__thursday day">
+                            <h3 class="title__day">Четверг</h3>
+                            <p class="timetable__item">Иностранный язык (В-401)</p>
+                            <p class="timetable__item">Компьютерное проектирование (Б-308)</p>
+                            <p class="timetable__item">Физкультура</p>
+                            <p class="timetable__item">Физкультура</p>
+                        </div>
+                        <!--end timetable__thursday-->
+                        <div class="timetable__friday day">
+                            <h3 class="title__day">Пятница</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Физика (Б-503) (лекция)</p>
+                            <p class="timetable__item">Тракторы и автомобили (Г-211)</p>
+                            <p class="timetable__item">Тракторы и автомобили (Г-211)</p>
+                        </div>
+                        <!--end timetable__friday-->
+                    </div>
+                    <!--end timetable__week-one-->
+                    <div class="timetable__week-two">
+                        <h2 class="title__week">Вторая неделя</h2>
+                        <div class="timetable__monday day">
+                            <h3 class="title__day">Понедельник</h3>
+                            <p class="timetable__item">Математика (Б-521)</p>
+                            <p class="timetable__item">Правила дорожного движения (Б-140)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-304) (лекция)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-119)</p>
+                        </div>
+                        <!--end timetable__monday-->
+                        <div class="timetable__tuesday day">
+                            <h3 class="title__day">Вторник</h3>
+                            <p class="timetable__item">Сопротивление материалов (Б-125)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-320)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__tuesday-->
+                        <div class="timetable__wednesday day">
+                            <h3 class="title__day">Среда</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Математика (Б-526)</p>
+                            <p class="timetable__item">Математика (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__wednesday-->
+                        <div class="timetable__thursday day">
+                            <h3 class="title__day">Четверг</h3>
+                            <p class="timetable__item">Физика (Б-512)</p>
+                            <p class="timetable__item">Компьютерное проектирование (Б-308)</p>
+                            <p class="timetable__item">Физкультура</p>
+                            <p class="timetable__item">Физкультура</p>
+                        </div>
+                        <!--end timetable__thursday-->
+                        <div class="timetable__friday day">
+                            <h3 class="title__day">Пятница</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Сопротивление материалов (Б-316) (лекция)</p>
+                            <p class="timetable__item">Иностранный язык (Б-317)</p>
+
+                        </div>
+                        <!--end timetable__friday-->
+                    </div>
+                    <!--end timetable__week-two-->
+                </div>
+                <!--end imb-222-->
+
+                <div class="timetable__group imb-231">
+                    <h1 class="title-group">ИМб-231</h1>
+                    <div class="timetable__week-one">
+                        <h2 class="title__week">Первая неделя</h2>
+                        <div class="timetable__monday day">
+                            <h3 class="title__day">Понедельник</h3>
+                            <p class="timetable__item">Компьютерное проектирование (Б-308)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-304) (лекция)</p>
+                            <p class="timetable__item">Правила дорожного движения (Б-140)</p>
+                        </div>
+                        <!--end timetable__monday-->
+                        <div class="timetable__tuesday day">
+                            <h3 class="title__day">Вторник</h3>
+                            <p class="timetable__item">Иностранный язык (В-310)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-119)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__tuesday-->
+                        <div class="timetable__wednesday day">
+                            <h3 class="title__day">Среда</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Математика (Б-526)</p>
+                            <p class="timetable__item">Математика (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__wednesday-->
+                        <div class="timetable__thursday day">
+                            <h3 class="title__day">Четверг</h3>
+                            <p class="timetable__item"><span>*</span>Тракторы и автомобили (Г-211)</p>
+                            <p class="timetable__item">Тракторы и автомобили (Г-211)</p>
+                            <p class="timetable__item">Физкультура</p>
+                            <p class="timetable__item">Физкультура</p>
+                        </div>
+                        <!--end timetable__thursday-->
+                        <div class="timetable__friday day">
+                            <h3 class="title__day">Пятница</h3>
+                            <p class="timetable__item">Теория механизмов и машин (Б-320)</p>
+                            <p class="timetable__item">Физика (Б-503) (лекция)</p>
+                        </div>
+                        <!--end timetable__friday-->
+                    </div>
+                    <!--end timetable__week-one-->
+                    <div class="timetable__week-two">
+                        <h2 class="title__week">Вторая неделя</h2>
+                        <div class="timetable__monday day">
+                            <h3 class="title__day">Понедельник</h3>
+                            <p class="timetable__item">Компьютерное проектирование (Б-308)</p>
+                            <p class="timetable__item">Математика (Б-521)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-304) (лекция)</p>
+                            <p class="timetable__item">Правила дорожного движения (Б-140)</p>
+                        </div>
+                        <!--end timetable__monday-->
+                        <div class="timetable__tuesday day">
+                            <h3 class="title__day">Вторник</h3>
+                            <p class="timetable__item">Иностранный язык (В-310)</p>
+                            <p class="timetable__item">Информатика и цифровые технологии (Д-119)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__tuesday-->
+                        <div class="timetable__wednesday day">
+                            <h3 class="title__day">Среда</h3>
+                            <p class="timetable__item">Свободная пара (дом)</p>
+                            <p class="timetable__item">Физика (Б-512)</p>
+                            <p class="timetable__item">Математика (Б-316) (лекция)</p>
+                        </div>
+                        <!--end timetable__wednesday-->
+                        <div class="timetable__thursday day">
+                            <h3 class="title__day">Четверг</h3>
+                            <p class="timetable__item">Математика (Б-521)</p>
+                            <p class="timetable__item">Теория механизмов и машин (Б-320)</p>
+                            <p class="timetable__item">Физкультура</p>
+                            <p class="timetable__item">Физкультура</p>
+                        </div>
+                        <!--end timetable__thursday-->
+                        <div class="timetable__friday day">
+                            <h3 class="title__day">Пятница</h3>
+                            <p class="timetable__item">Сопротивление материалов (Б-125)</p>
+                            <p class="timetable__item">Сопротивление материалов (Б-316) (лекция)</p>
+
+                        </div>
+                        <!--end timetable__friday-->
+                    </div>
+                    <!--end timetable__week-two-->
+                </div>
+                <!--end imb-231-->
+
+            </div>
+        </main>
+        <!--end main-->
+        <transition name="modal">
+            <section class="modal modal-group" v-show="groupStatus" v-on:click="groupStatus = false">
+                <div class="modal-group__main">
+                    <p v-on:click=" selectGroup('imb-211', 'ИМб-211' ) ">ИМб-211</p>
+                    <p v-on:click=" selectGroup('imb-212', 'ИМб-212' ) ">ИМб-212</p>
+                    <p v-on:click=" selectGroup('imb-221', 'ИМб-221' ) ">ИМб-221</p>
+                    <p v-on:click=" selectGroup('imb-222', 'ИМб-222' ) ">ИМб-222</p>
+                    <p v-on:click=" selectGroup('imb-231', 'ИМб-231' ) ">ИМб-231</p>
+                </div>
+            </section>
+        </transition>
+        <!--end modal-->
+        <transition name="modal">
+            <section class="modal modal-week" v-show="weekStatus" v-on:click="weekStatus = false">
+                <div class="modal-week">
+                    <p v-on:click=" selectWeek('.timetable__week-two', 'первая') ">Первая неделя</p>
+                    <p v-on:click=" selectWeek('.timetable__week-one', 'вторая') ">Вторая неделя</p>
+                </div>
+            </section>
+        </transition>
+        <!--end week-->
+        <transition name="modal">
+            <section class="modal modal-day" v-show="dayStatus" v-on:click="dayStatus = false">
+                <div class="modal-day">
+                    <p v-on:click=" selectDay('timetable__monday', 'понедельник') ">Понедельник</p>
+                    <p v-on:click=" selectDay('timetable__tuesday', 'вторник') ">Вторник</p>
+                    <p v-on:click=" selectDay('timetable__wednesday', 'среда') ">Среда</p>
+                    <p v-on:click=" selectDay('timetable__thursday', 'четверг') ">Четверг</p>
+                    <p v-on:click=" selectDay('timetable__friday', 'пятница') ">Пятница</p>
+                </div>
+            </section>
+        </transition>
+        <!--end day-->
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+body{
+    overflow: hidden;
+}
+
+.hidden{
+    display: none;
+}
+
+.wrapper{
+    min-height: 100%;
+    display: grid;
+    grid-template: 1fr / 2fr 6fr;
+    font-family: 'Rubik';
+    transition: .3s;
+
+    @media(max-width: 1300px){
+        grid-template: 1fr / 2fr 6fr;
+    }
+
+    @media(max-width: 760px){
+        grid-template: 1fr / 3fr 6fr;
+    }
+
+    @media(max-width: 760px){
+        grid-template: 1fr / 6fr 6fr;
+    }
+
+    @media(max-width: 560px){
+        grid-template: 1fr / 6fr 3fr;
+    }
+}
+
+.wrapper-active{
+    grid-template: 1fr / 0fr 6fr;
+
+    .aside{
+        padding: 0px;
+        
+        &__header,
+        &__main,
+        &__footer{
+            display: none;
+        }
+    }
+}

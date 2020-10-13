@@ -1,0 +1,50 @@
+.timetable{
+    padding: 50px 5px;
+    
+    &__group{
+        border-bottom: 2px solid #535D85;
+        padding: 0px 0px 20px 0px;
+        margin: 0px 0px 20px 0px;
+
+        &:last-child{
+            margin: 0px;
+            border: none;
+        }
+    }
+
+    &__item{
+        margin: 10px 0px 0px 20px;
+
+        &:before{
+            content: " - ";
+        }
+    }
+
+    .title-group,
+    .title__week{
+        padding: 0px 0px 0px 10px;
+        margin:0px 0px 10px 0px;
+        border-left: 2px solid  #535D85;
+    }
+
+    &__week-one,
+    &__week-two{
+        padding: 0px 0px 0px 10px;
+        margin: 0px 0px 10px 10px;
+        
+        div{
+            margin: 0px 0px 0px 12px;
+        }
+    }
+
+    .title__week{
+        
+    }
+
+    .title__day{
+        
+        &:after{
+            content: ":";
+        }
+    }
+}
