@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <title>timetable</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
@@ -29,7 +29,8 @@
             </section>
             <!--end main-->
             <footer class="aside__footer">
-                <p>Есть идеи по улучшению или нашли ошибки? Тогда писать <a target="_blank" href="https://vk.com/idvladislavnaverno">сюда</a></p>
+                <p>Есть идеи по улучшению или нашли ошибки? Тогда писать <a target="_blank"
+                        href="https://vk.com/idvladislavnaverno">сюда</a></p>
             </footer>
             <!--end footer-->
         </aside>
@@ -495,6 +496,7 @@
         <transition name="modal">
             <section class="modal modal-day" v-show="dayStatus" v-on:click="dayStatus = false">
                 <div class="modal-day">
+                    <p v-on:click=" selectDay('all', 'все дни') ">Все дни</p>
                     <p v-on:click=" selectDay('timetable__monday', 'понедельник') ">Понедельник</p>
                     <p v-on:click=" selectDay('timetable__tuesday', 'вторник') ">Вторник</p>
                     <p v-on:click=" selectDay('timetable__wednesday', 'среда') ">Среда</p>

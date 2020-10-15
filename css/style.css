@@ -340,7 +340,7 @@ body {
 
 .timetable__group:last-child {
   margin: 0px;
-  border: none;
+  border-bottom: none;
 }
 
 .timetable__item {
@@ -365,6 +365,16 @@ body {
 
 .timetable__week-one div, .timetable__week-two div {
   margin: 0px 0px 0px 12px;
+}
+
+.timetable .day {
+  border-bottom: 2px solid #535D85;
+  padding: 20px 0px;
+}
+
+.timetable .day:last-child {
+  border-bottom: none;
+  padding: 20px 0px 0px 0px;
 }
 
 .timetable .title__day:after {
