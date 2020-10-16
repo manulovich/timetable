@@ -225,6 +225,7 @@ body {
 .main {
   height: 100vh;
   position: relative;
+  overflow-x: none;
   overflow-y: auto;
 }
 
