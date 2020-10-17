@@ -114,6 +114,8 @@ let vm = new Vue({
                 this.selectDay("timetable__thursday", "четверг");
             } else if (day === 5) {
                 this.selectDay("timetable__friday", "пятница");
+            } else {
+                this.selectDay("all", "все дни");
             }
             //week
             let week = new Date().getDate();
