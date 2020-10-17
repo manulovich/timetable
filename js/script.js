@@ -75,7 +75,7 @@ let vm = new Vue({
         },
         sortDay(day) {
             this.dayHidden();
-            if(day === "all"){
+            if (day === "all") {
                 return;
             }
             document.querySelectorAll(".day").forEach(function (item) {
@@ -119,27 +119,27 @@ let vm = new Vue({
             let week = new Date().getDate();
             let month = new Date().getMonth();
             if (month === 8) { // september
-                if ((week >= 1 && week <= 6) || (week >= 14 && week <= 20) || (week >= 28 && week <= 30)) {
-                    this.selectWeek('.timetable__week-two', 'первая');
-                } else if ((week >= 7 && week <= 13) || (week >= 21 && week <= 27)) {
-                    this.selectWeek('.timetable__week-one', 'вторая');
-                }
-            } else if (month === 9) { // october
-                if ((week >= 1 && week <= 4) || (week >= 12 && week <= 18) || (week >= 26 && week <= 31)) {
+                if ((week >= 1 && week <= 4) || (week >= 12 && week <= 18) || (week >= 26 && week <= 30)) {
                     this.selectWeek('.timetable__week-two', 'первая');
                 } else if ((week >= 5 && week <= 11) || (week >= 19 && week <= 25)) {
                     this.selectWeek('.timetable__week-one', 'вторая');
                 }
-            } else if (month === 10) { //november
-                if (week === 1 || (week >= 9 && week <= 15) || (week >= 23 && week <= 29)) {
+            } else if (month === 9) { // october
+                if ((week >= 1 && week <= 2) || (week >= 10 && week <= 16) || (week >= 24 && week <= 30)) {
                     this.selectWeek('.timetable__week-two', 'первая');
-                } else if ((week >= 2 && week <= 8) || (week >= 16 && week <= 22) || week === 30) {
+                } else if ((week >= 3 && week <= 9) || (week >= 17 && week <= 23)) {
+                    this.selectWeek('.timetable__week-one', 'вторая');
+                }
+            } else if (month === 10) { //november
+                if ((week >= 7 && week <= 13) || (week >= 21 && week <= 27)) {
+                    this.selectWeek('.timetable__week-two', 'первая');
+                } else if ((week >= 1 && week <= 6) || (week >= 14 && week <= 20) ||  (week >= 28 && week <= 30)) {
                     this.selectWeek('.timetable__week-one', 'вторая');
                 }
             } else if (month === 11) { //december
-                if ((week >= 1 && week <= 6) || (week >= 14 && week <= 20) || (week >= 28 && week <= 31)) {
+                if ((week >= 5 && week <= 11) || (week >= 19 && week <= 25)) {
                     this.selectWeek('.timetable__week-two', 'первая');
-                } else if ((week >= 7 && week <= 13) || (week >= 21 && week <= 27)) {
+                } else if ((week >= 1 && week <= 4) || (week >= 12 && week <= 18) || (week >= 26 && week <= 31)) {
                     this.selectWeek('.timetable__week-one', 'вторая');
                 }
             }
